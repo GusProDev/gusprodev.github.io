@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
+/* style.css */
 body {
-  background-color: lightblue;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #333;
 }
-
 h1 {
-  color: white;
-  text-align: center;
+    color: #007acc;
 }
-
-p {
-  font-family: verdana;
-  font-size: 20px;
-}
-</style>
-</head>
-<body>
-
-<h1>My First CSS Example</h1>
-<p>This is a paragraph.</p>
-
-</body>
-</html>
-

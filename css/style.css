@@ -1,84 +1,78 @@
- /* General reset */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* Background setup */
-  body {
-    background-color: #2e2e2e; /* Dark gray background */
-    overflow: hidden;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: none; /* Hide default cursor */
-    position: relative;
-  }
+/* Background setup */
+body {
+  background-color: #2e2e2e; /* Dark gray background */
+  overflow: hidden;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none; /* Hide default cursor */
+  position: relative;
+}
 
-  /* Custom glowing cursor */
-  body::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, rgba(255,255,255,0.8), transparent 60%);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out;
-  }
+/* Custom glowing cursor */
+body::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+}
 
-  /* Follow cursor */
-  body.add-glow::after {
-    width: 50px;
-    height: 50px;
-    opacity: 0.7;
-    transform: translate(-50%, -50%);
-  }
+/* Follow cursor */
+body.add-glow::after {
+  width: 50px;
+  height: 50px;
+  opacity: 0.7;
+  transform: translate(-50%, -50%);
+}
 
-  /* Add glowing effect on hover */
-  body:hover::after {
-    width: 30px;
-    height: 30px;
-    opacity: 0.9;
-  }
+/* Add glowing effect on hover */
+body:hover::after {
+  width: 30px;
+  height: 30px;
+  opacity: 0.9;
+}
 
-  /* Moving cursor */
-  body.add-glow::after {
-    opacity: 0.8;
-    animation: glow 0.8s infinite alternate ease-in-out;
-  }
+/* Cursor effect */
+@keyframes glow {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
 
-  /* Cursor effect */
-  @keyframes glow {
-    from { opacity: 0.8; }
-    to { opacity: 1; }
-  }
+/* Border elements */
+.border-animate {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  pointer-events: none;
+  animation: rotate 40s linear infinite;
+  background: linear-gradient(45deg, purple, pink, blue, cyan, purple);
+  background-size: 200% 200%;
+  background-clip: padding-box;
+  mask: radial-gradient(circle, transparent 40%, black 41%);
+}
 
-  /* Border elements */
-  .border-animate {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 2px solid transparent;
-    pointer-events: none;
-    animation: rotate 40s linear infinite;
-    background: linear-gradient(45deg, purple, pink, blue, cyan, purple);
-    background-size: 200% 200%;
-    background-clip: padding-box;
-    mask: radial-gradient(circle, transparent 40%, black 41%);
+/* Rotating animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
   }
-
-  /* Rotating animation */
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
   }
+}
